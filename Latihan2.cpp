@@ -1,33 +1,88 @@
 #include <iostream>
 using namespace std;
 
-//deklarasi fungsi
-int sum(int,int);
+//Deklarasi fungsi
+void terbesar();
+void urut_data();
 
-float bagi(int a, int b) {
-    return a/b;
+int main()
+{
+    int a;
+
+    do {
+    //system("clear")
+    cout << " \n";
+    cout << " \n";
+    cout << "---------------------------------------------------------" << endl;
+    cout << " \n";
+    cout << "   Program apa yang ingin anda gunakan?" << endl;
+    cout << "   Input angka dari program di bawah ini" << endl;
+    cout << " \n";
+    cout << "       1. Menentukan bilangan terbesar" << endl;
+    cout << "       2. Mengurutkan bilangan dari yang terkecil" << endl;
+    cout << "       0. Keluar" << endl;
+    cout << " \n";
+    cout << "   Masukkan di sini ---> ";
+    cin >> a;
+    cout << " \n";
+    cout << "---------------------------------------------------------" << endl;
+    cout << " \n";
+
+    switch(a){
+        case 1:
+            terbesar();
+            break;
+        case 2:
+            urut_data();
+            break;
+        }
+    } while(a != 0);
+
 }
 
-//fungsi utama
-int main(){
+void terbesar(){
+    int n=0;
+    int max=0;
 
-  //memanggil fungsi
-  cout << sum(1,99) << endl;
+    do {
+    cout << "Masukkan bilangan (masukkan 0 untuk berhenti): ";
+    cin >> n;
 
-  int a, b;
-  cin >> a >> b;
-  cout << sum(a, b) << endl;
+    if (n > max)
+        max = n;
+    } while (n != 0);
 
-  int c = sum(a, 10);
-  cout << c << endl;
+    cout << "Bilangan terbesar adalah " << max << " \n";
 
-  cout << bagi(a,b) << endl;
-
-  return 0;
 }
 
-/* fungsi didefinisikan setelah fungsi utama */
-int sum(int num1, int num2){
-    int num3 = num1+num2;
-    return num3;
+void urut_data(){
+    int A, B, C;
+    cout << " \n";
+    cout << " \n";
+    cout << "Masukkan Bilangan 1: ";
+    cin >> A;
+    cout << "Masukkan Bilangan 2: ";
+    cin >> B;
+    cout << "Masukkan Bilangan 3: ";
+    cin >> C;
+
+    if (A<B){
+      if (B<C)
+            cout << A << ", "<< B <<", "<< C << endl;
+    else
+        if (A<C)
+            cout << A << ", " << C << ", " << B << endl;
+        else cout << C << ", " << A << ", " << B << endl;
+    }else {
+    if (A<C)
+        cout << B << ", " << A << ", " << C << endl;
+    else
+        if (B<C)
+
+        cout << B << ", " << C << ", " << A << endl;
+    else
+        cout << C << ", " << B << ", " << A << endl;
+    }
+
 }
